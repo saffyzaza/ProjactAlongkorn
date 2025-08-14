@@ -96,8 +96,10 @@ const CourseTable = ({ courses, onUpdate }) => {
           <li>รวมหน่วยกิตทั้งหมด: <span className="font-semibold">{summary.totalCredits} หน่วยกิต</span></li>
         </ul>
       </div>
-      {/* <div className=" mb-4 p-4 bg-gray-100 border rounded">
+      <br />
+      <div className=" mb-4 p-4 bg-gray-100 border rounded">
         <div className="flex flex-col md:flex-row gap-2 md:items-center">
+          
           <input
             type="text"
             placeholder="รหัสวิชา (code)"
@@ -119,7 +121,7 @@ const CourseTable = ({ courses, onUpdate }) => {
             บันทึก
           </button>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 };

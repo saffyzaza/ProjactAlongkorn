@@ -15,7 +15,7 @@ function SaveButton({ data }) {
 
   return (
     <button
-      className="text-sm bg-green-600 text-white px-2 py-1 rounded"
+      className="text-sm bg-green-600 text-white px-2 py-1 rounded ml-2"
       onClick={handleSave}
     >
       💾 บันทึกข้อมูล

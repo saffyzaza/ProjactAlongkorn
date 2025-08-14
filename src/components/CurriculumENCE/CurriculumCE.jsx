@@ -54,27 +54,28 @@ const CurriculumPage = () => {
 };
 
   useEffect(() => {
-    fetch('http://localhost:8080/authers')
-      .then((res) => res.json())
-      .then((data) => {
-        setCurriculumData(data);
-        const firstCategory = Object.keys(data)[0];
-        setSelectedCategory(firstCategory);
+  fetch('https://gist.githubusercontent.com/saffyzaza/1f22fb97930136b1ac7b5fdba49db995/raw/0c2dc79bb4f6d1d084aca91bc712fec764419fe8/curriculum.json')
+    .then((res) => res.json())
+    .then((data) => {
+      setCurriculumData(data);
+      const firstCategory = Object.keys(data)[0];
+      setSelectedCategory(firstCategory);
 
-        const sub = data[firstCategory];
-        if (typeof sub === 'object' && !Array.isArray(sub)) {
-          const firstSub = Object.keys(sub)[0];
-          setSelectedSubcategory(firstSub);
-          updateSelectedCourses(firstCategory, firstSub);
-        } else {
-          setSelectedSubcategory('');
-          updateSelectedCourses(firstCategory, '');
-        }
-      })
-      .catch((error) => {
-        console.error('เกิดข้อผิดพลาดในการโหลดข้อมูล:', error);
-      });
-  }, []);
+      const sub = data[firstCategory];
+      if (typeof sub === 'object' && !Array.isArray(sub)) {
+        const firstSub = Object.keys(sub)[0];
+        setSelectedSubcategory(firstSub);
+        updateSelectedCourses(firstCategory, firstSub);
+      } else {
+        setSelectedSubcategory('');
+        updateSelectedCourses(firstCategory, '');
+      }
+    })
+    .catch((err) => {
+      console.error("โหลด JSON ล้มเหลว:", err);
+    });
+}, []);
+
 
   const getCategoryCourseCount = (category) => {
     const sub = curriculumData[category];
@@ -139,8 +140,7 @@ const CurriculumPage = () => {
     <div className="flex flex-col md:flex-row p-4 md:p-6 gap-4 md:gap-6">
       {/* ซ้าย: หมวดวิชา */}
       <div className="md:w-1/3 w-full">
-        <h2 className="text-base md:text-lg font-bold mb-2">
-          หมวดวิชา
+        
           <button
             onClick={() => window.location.reload()}
             className="text-sm bg-blue-500 text-white px-2 py-1 rounded ml-2"
@@ -161,6 +161,8 @@ const CurriculumPage = () => {
               onChange={handleFileUpload}
             />
           </label>
+        <h2 className="text-base md:text-lg font-bold mb-2">
+          หมวดวิชาวิศวกรรมคอมพิวเตอร์
         </h2>
         <ul className="space-y-2">
           {Object.keys(curriculumData).map((category) => (

@@ -2,7 +2,7 @@ import React from 'react'
 
 export const Footer = () => {
   return (
-    <footer className="bg-red-600 text-white py-4 px-6 mt-10">
+    <footer className="bg-red-800 text-white py-4 px-6 mt-10">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="text-center md:text-left mb-2 md:mb-0">
             <p className="font-semibold">มหาวิทยาลัยตัวอย่าง</p>
